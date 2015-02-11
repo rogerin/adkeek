@@ -1,0 +1,47 @@
+<h2>Lista de Usuarios cadastrados</h2>
+<div class="bs-example" data-example-id="striped-table" ng-init="init()">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>id Google</th>
+
+          <th>Data cadastro</th>
+          <th>Açoes</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in users">
+          <th scope="row">{{user._id}}</th>
+          <td>{{user.nome}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.registro_id | limitTo : 10}}...</td>
+          <td>{{user.created_at}}</td>
+          <td>
+          	<form>
+          		<textarea ng-model="user.msg"></textarea>
+          		<button type="submit" class="btn btn-success" ng-click="sendNotification(user)">Enviar Notificação</button>
+          	</form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+ <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body">
+            .....
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+     
